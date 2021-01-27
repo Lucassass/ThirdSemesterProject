@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<body>
+    <form>
+        <div>
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" required />
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
+        </div>
+        <button id="submit" type="button">Submit</button> <br />
+
+        <button id="refreshBtn" type="button">REFRESH JWTs</button>
+        <p>check status in console</p>
+        <br />
+        <button id="logoutBtn" type="button">LOGOUT</button>
+        <a href="http://kubuntu.stream.stud-srv.sdu.dk/service03/forgot/forgotPasword-page.html">Forgot Password?</a>
+    </form>
+    <script>
+        const logoutBtn = document.getElementById('logoutBtn');
+        logoutBtn.addEventListener('click', () => {
+            //MOCK_URL='https://localhost/auth/logout'
+            //KUBUNTU_URL="http://kubuntu.stream.stud-srv.sdu.dk/service01/logout"
+            fetch('http://kubuntu.stream.stud-srv.sdu.dk/service01/logout', {
+                method: 'POST'
+            });
+        });
+
+        const refreshBtn = document.getElementById('refreshBtn');
+        refreshBtn.addEventListener('click', () => {
+            //MOCK_URL='https://localhost/auth/refresh'
+            //KUBUNTU_URL="http://kubuntu.stream.stud-srv.sdu.dk/service01/refresh"
+            fetch('http://kubuntu.stream.stud-srv.sdu.dk/service01/refresh', {
+                method: 'POST'
+            });
+        });
+
+        const loginBtn = document.getElementById('submit');
+        loginBtn.addEventListener('click', () => {
+            console.log(document.getElementById('email').value);
+            console.log(document.getElementById('password').value);
+            fetch('http://kubuntu.stream.stud-srv.sdu.dk/service01/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email: document.getElementById('email').value,
+                    password: document.getElementById('password').value
+                })
+            });
+        });
+    </script>
+</body>

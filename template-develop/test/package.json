@@ -1,0 +1,32 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.ts",
+  "scripts": {
+    "test-auth": "mocha --timeout 600000 --unhandled-rejections=strict -r ts-node/register test.ts",
+    "test-mailer": "mocha --timeout 600000 --unhandled-rejections=strict -r ts-node/register test-mailer.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/forever-monitor": "^1.7.5",
+    "@types/mocha": "^8.2.0",
+    "@types/supertest": "^2.0.10",
+    "cookie-parser": "^1.4.5",
+    "jsonwebtoken": "^8.5.1",
+    "node-fetch": "^2.6.1",
+    "node-mailer": "^0.1.1",
+    "supertest": "^6.0.1",
+    "typescript": "^4.1.3",
+    "uuid": "^8.3.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.0.4",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "fast-check": "2.7.0",
+    "mocha": "^8.2.1",
+    "ts-node": "^9.1.1"
+  }
+}
